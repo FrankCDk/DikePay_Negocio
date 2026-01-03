@@ -1,0 +1,37 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Api/">
+    <Project Path="DikePay.Api/DikePay.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Auth/" />
+  <Folder Name="/src/Modules/Auth/Application/">
+    <Project Path="DikePay.Modules.Auth.Application/DikePay.Modules.Auth.Application.csproj" Id="bfe0d164-a698-4674-95a4-c48c4609577e" />
+  </Folder>
+  <Folder Name="/src/Modules/Auth/Domain/">
+    <Project Path="DikePay.Modules.Auth.Domain/DikePay.Modules.Auth.Domain.csproj" Id="b2529314-4ede-4d99-afb9-28653f6055ff" />
+  </Folder>
+  <Folder Name="/src/Modules/Auth/Infrastructure/">
+    <Project Path="DikePay.Modules.Auth.Infrastructure/DikePay.Modules.Auth.Infrastructure.csproj" Id="99f38010-ad60-42cd-9542-8576c9a5a066" />
+  </Folder>
+  <Folder Name="/src/Modules/Auth/Shared/">
+    <Project Path="DikePay.Modules.Auth.Shared/DikePay.Modules.Auth.Shared.csproj" Id="114709b4-9dce-44e9-936f-b1becd911536" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalog/" />
+  <Folder Name="/src/Modules/Catalog/Application/">
+    <Project Path="DikePay.Modules.Catalog.Application/DikePay.Modules.Catalog.Application.csproj" Id="1708abe7-1fe3-4422-b7a9-32dc0bb670ba" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalog/Domain/">
+    <Project Path="DikePay.Modules.Catalog.Domain/DikePay.Modules.Catalog.Domain.csproj" Id="31ac2a6a-56c1-4b53-b749-181a9d7e52f1" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalog/Infrastructure/">
+    <Project Path="DikePay.Modules.Catalog.Infrastructure/DikePay.Modules.Catalog.Infrastructure.csproj" Id="16aae90a-4342-49dc-a0ed-ff472f543831" />
+  </Folder>
+  <Folder Name="/src/Modules/Catalog/Shared/">
+    <Project Path="DikePay.Modules.Catalog.Shared/DikePay.Modules.Catalog.Shared.csproj" Id="a50a6a60-2e61-4a32-8f69-925e3044237b" />
+  </Folder>
+  <Folder Name="/src/Shared/" />
+  <Folder Name="/src/Shared/Infrastructure/">
+    <Project Path="DikePay.Shared.Infrastructure/DikePay.Shared.Infrastructure.csproj" Id="5b2e1659-fb0a-431b-ad1f-7ea2ecf4baaa" />
+  </Folder>
+</Solution>
