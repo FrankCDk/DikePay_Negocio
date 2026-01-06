@@ -1,3 +1,8 @@
+Docker command:
+
+docker build -t dikepay-api -f DikePay.Api/Dockerfile .
+docker run -d -p 9000:8080 -p 9001:8081 --name dikepay-api dikepay-api-image
+
 
 ```sql
 create database DikePay;
