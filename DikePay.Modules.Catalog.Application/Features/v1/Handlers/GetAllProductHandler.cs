@@ -22,13 +22,32 @@ namespace DikePay.Modules.Catalog.Application.Features.v1.Handlers
 
             // Mapeamos de Entidad -> DTO
             return products.Select(p => new ProductResponse(
-                p.Id,
-                p.Code,
-                p.Name,
-                p.Price,
-                p.Stock,
-                p.Unit
-            ));
+                    p.Id,
+                    p.Version,
+                    p.Code,
+                    p.Sku,
+                    p.Name,
+                    p.Price,
+                    p.Stock,
+                    p.StockMin,
+                    p.TaxProductCode,
+                    p.Unit,
+                    p.ProductType,
+                    p.TaxInventoryType,
+                    p.AllowsDecimals,
+                    p.HasSerialNumber,
+                    p.HasBatchNumber,
+                    p.TrackStock,
+                    p.IsOpenPrice,
+                    p.Currency,
+                    p.DiscountPercentage,
+                    p.TaxAffectationType,
+                    p.Status,
+                    p.CreatedAt,
+                    p.UserCreatedAt,
+                    p.UpdatedAt,
+                    p.UserUpdateddAt
+                ));
         }
     }
 }

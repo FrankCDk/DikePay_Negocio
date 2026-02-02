@@ -11,11 +11,11 @@ namespace DikePay.Modules.Catalog.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             // Aquí le decimos a EF que este módulo solo debe mirar sus tablas
             // y cómo se mapean a la DB existente
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+
         }
     }
 }

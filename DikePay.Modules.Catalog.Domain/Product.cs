@@ -7,7 +7,7 @@
         /// Identificador único.
         /// Generado en el dispositivo de origen para evitar colisiones durante la sincronización.
         /// </summary>
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         /// <summary>
         /// Versión del producto. Lo usaremos para que al momento de sincronizar ambos deben estar en la misma versión.
@@ -23,7 +23,7 @@
         /// Código SKU (Stock Keeping Unit).
         /// Usado para el código de barras u otros identificadores de inventario.
         /// </summary>
-        public string Sku { get; set; } = string.Empty;
+        public string? Sku { get; set; } = string.Empty;
 
         /// <summary>
         /// Nombre del producto.

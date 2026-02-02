@@ -15,6 +15,7 @@ namespace DikePay.Modules.Catalog.Infrastructure.Persistence
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id)
                    .HasColumnName("id")
+                   .HasColumnType("char(36)")
                    .ValueGeneratedNever(); // El GUID lo generamos en C# (Offline-ready)
 
             // 3. Identidad de Negocio e Índices

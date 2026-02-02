@@ -1,7 +1,9 @@
-﻿using Asp.Versioning;
+﻿using System.Security.Claims;
+using Asp.Versioning;
 using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
 using DikePay.Modules.Auth.Shared.Contracts.v1.DTOs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +31,32 @@ namespace DikePay.Api.Controllers.v1.Auth
 
             return Ok(user);
 
+        }
+
+
+        [Authorize]
+        [HttpPost("generate-qr-code")]
+        public async Task<IActionResult> GenerateQrCode(CancellationToken ct)
+        {
+            // Obtenemos el ID del usuario del Token JWT actual
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+            var command = new GenerateMobileAuthCodeCommand(userId);
+            var result = await _mediator.Send(command, ct);
+
+            return Ok(result); // Devuelve el código temporal
+        }
+
+        [HttpPost("login-qr")]
+        public async Task<IActionResult> LoginQr([FromBody] LoginQrCommand request, CancellationToken ct)
+        {
+            var authResponse = await _mediator.Send(request, ct);
+
+            if (authResponse == null)
+                return Unauthorized(new { message = "Código inválido o expirado" });
+
+            return Ok(authResponse);
         }
 
     }

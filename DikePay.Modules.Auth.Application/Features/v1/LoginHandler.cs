@@ -1,13 +1,9 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+﻿using DikePay.Modules.Auth.Application.Abstractions.Interfaces;
 using DikePay.Modules.Auth.Application.Abstractions.Persistence;
-using DikePay.Modules.Auth.Domain;
 using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
 using DikePay.Modules.Auth.Shared.Contracts.v1.DTOs;
 using MediatR;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 
 namespace DikePay.Modules.Auth.Application.Features.v1
 {
@@ -16,11 +12,13 @@ namespace DikePay.Modules.Auth.Application.Features.v1
 
         private readonly IAuthRepository _authRepository;
         private readonly IConfiguration _configuration;
+        private readonly ITokenService _tokenService;
 
-        public LoginHandler(IAuthRepository authRepository, IConfiguration configuration)
+        public LoginHandler(IAuthRepository authRepository, IConfiguration configuration, ITokenService tokenService)
         {
             _authRepository = authRepository;
             _configuration = configuration;
+            _tokenService = tokenService;
         }
 
         public async Task<UserResponse?> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -35,7 +33,7 @@ namespace DikePay.Modules.Auth.Application.Features.v1
 
             if (!isPasswordValid) return null; // Contraseña incorrecta
 
-            var token = GenerateJwtToken(user);
+            var token = _tokenService.GenerateJwtToken(user);
 
             return new UserResponse
             {
@@ -54,28 +52,6 @@ namespace DikePay.Modules.Auth.Application.Features.v1
             return BCrypt.Net.BCrypt.Verify(password, storedHash);
         }
 
-        private string GenerateJwtToken(UserAccount user)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            // Los "Claims" son la información que viaja dentro del token
-            var claims = new[]
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Code),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.Role),
-                new Claim("Nombre", user.Name)
-            };
-
-            var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Audience"],
-                claims,
-                expires: DateTime.Now.AddHours(8), // El token dura 8 horas
-                signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        
     }
 }

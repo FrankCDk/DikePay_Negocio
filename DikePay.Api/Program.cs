@@ -1,10 +1,15 @@
 ﻿using System.Reflection;
+using System.Text;
 using Asp.Versioning;
 using DikePay.Modules.Auth.Infrastructure;
 using DikePay.Modules.Catalog.Infrastructure;
+using DikePay.Modules.Configuration.Infrastructure;
+using DikePay.Modules.Promotions.Infrastructure;
 using DikePay.Shared.Infrastructure.Behaviors;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +17,26 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     // Desactiva la comprobación automática de ModelState para que FluentValidation tome el control.
     options.SuppressModelStateInvalidFilter = true;
+});
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
 });
 
 // Add services to the container.
@@ -34,6 +59,8 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddCatalogModule(builder.Configuration);
 builder.Services.AddAuthModule(builder.Configuration);
+builder.Services.AddConfigurationModule(builder.Configuration);
+builder.Services.AddPromotionsModule(builder.Configuration);
 
 #region Versionamiento de la API
 //Configuracion de versionamiento de api
@@ -83,6 +110,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,4 +1,6 @@
-﻿using DikePay.Modules.Auth.Application.Abstractions.Persistence;
+﻿using DikePay.Modules.Auth.Application.Abstractions.Interfaces;
+using DikePay.Modules.Auth.Application.Abstractions.Persistence;
+using DikePay.Modules.Auth.Application.Services;
 using DikePay.Modules.Auth.Infrastructure.Persistence;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +43,7 @@ namespace DikePay.Modules.Auth.Infrastructure
             // Por ejemplo, configuración de la base de datos, repositorios, servicios, etc.
             services.AddScoped<IAuthUnitOfWork, AuthUnitOfWork>();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ITokenService, TokenService>();
             return services;
         }
     }

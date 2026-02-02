@@ -77,6 +77,10 @@
     <ProjectReference Include="..\DikePay.Modules.Auth.Shared\DikePay.Modules.Auth.Shared.csproj" />
     <ProjectReference Include="..\DikePay.Modules.Catalog.Infrastructure\DikePay.Modules.Catalog.Infrastructure.csproj" />
     <ProjectReference Include="..\DikePay.Modules.Catalog.Shared\DikePay.Modules.Catalog.Shared.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Configuration.Infrastructure\DikePay.Modules.Configuration.Infrastructure.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Configuration.Shared\DikePay.Modules.Configuration.Shared.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Promotions.Infrastructure\DikePay.Modules.Promotions.Infrastructure.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Promotions.Shared\DikePay.Modules.Promotions.Shared.csproj" />
     <ProjectReference Include="..\DikePay.Shared.Infrastructure\DikePay.Shared.Infrastructure.csproj" />
   </ItemGroup>
 

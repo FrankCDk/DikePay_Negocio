@@ -4,6 +4,13 @@
     <Project Path="DikePay.Api/DikePay.Api.csproj" />
   </Folder>
   <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Agencies/" />
+  <Folder Name="/src/Modules/Agencies/Application/">
+    <Project Path="DikePay.Modules.Agencies.Application/DikePay.Modules.Agencies.Application.csproj" Id="e05abd05-c25d-45da-acdc-022bd2bbbe34" />
+  </Folder>
+  <Folder Name="/src/Modules/Agencies/Domain/">
+    <Project Path="DikePay.Modules.Agencies.Domain/DikePay.Modules.Agencies.Domain.csproj" Id="f4347dfa-97eb-41d4-b62e-601f8bf40cf0" />
+  </Folder>
   <Folder Name="/src/Modules/Auth/" />
   <Folder Name="/src/Modules/Auth/Application/">
     <Project Path="DikePay.Modules.Auth.Application/DikePay.Modules.Auth.Application.csproj" Id="bfe0d164-a698-4674-95a4-c48c4609577e" />
@@ -17,6 +24,19 @@
   <Folder Name="/src/Modules/Auth/Shared/">
     <Project Path="DikePay.Modules.Auth.Shared/DikePay.Modules.Auth.Shared.csproj" Id="114709b4-9dce-44e9-936f-b1becd911536" />
   </Folder>
+  <Folder Name="/src/Modules/Billing/" />
+  <Folder Name="/src/Modules/Billing/Application/">
+    <Project Path="DikePay.Modules.Billing.Application/DikePay.Modules.Billing.Application.csproj" Id="e350667d-83eb-4207-807c-b27106e4e2dc" />
+  </Folder>
+  <Folder Name="/src/Modules/Billing/Domain/">
+    <Project Path="DikePay.Modules.Billing.Domain/DikePay.Modules.Billing.Domain.csproj" Id="a7a76e59-39ee-43bd-893c-0b17486d5067" />
+  </Folder>
+  <Folder Name="/src/Modules/Billing/Infrastructure/">
+    <Project Path="DikePay.Modules.Billing.Infrastructure/DikePay.Modules.Billing.Infrastructure.csproj" Id="fdeba20e-e5d4-4e9f-bf41-9de87854c430" />
+  </Folder>
+  <Folder Name="/src/Modules/Billing/Shared/">
+    <Project Path="DikePay.Modules.Billing.Shared/DikePay.Modules.Billing.Shared.csproj" Id="684090e7-26e9-4455-b2d7-b45ec8986a90" />
+  </Folder>
   <Folder Name="/src/Modules/Catalog/" />
   <Folder Name="/src/Modules/Catalog/Application/">
     <Project Path="DikePay.Modules.Catalog.Application/DikePay.Modules.Catalog.Application.csproj" Id="1708abe7-1fe3-4422-b7a9-32dc0bb670ba" />
@@ -29,6 +49,35 @@
   </Folder>
   <Folder Name="/src/Modules/Catalog/Shared/">
     <Project Path="DikePay.Modules.Catalog.Shared/DikePay.Modules.Catalog.Shared.csproj" Id="a50a6a60-2e61-4a32-8f69-925e3044237b" />
+  </Folder>
+  <Folder Name="/src/Modules/Configuration/" />
+  <Folder Name="/src/Modules/Configuration/Application/">
+    <Project Path="DikePay.Modules.Configuration.Application/DikePay.Modules.Configuration.Application.csproj" Id="817c7864-9a7f-4271-bb97-bdff8951757e" />
+  </Folder>
+  <Folder Name="/src/Modules/Configuration/Domain/">
+    <Project Path="DikePay.Modules.Configuration.Domain/DikePay.Modules.Configuration.Domain.csproj" Id="7aaa9390-6c2a-471d-9de3-33509a10a502" />
+  </Folder>
+  <Folder Name="/src/Modules/Configuration/Infrastructure/">
+    <Project Path="DikePay.Modules.Configuration.Infrastructure/DikePay.Modules.Configuration.Infrastructure.csproj" Id="a090aa1b-981b-4a55-87f6-88f6c777f6b9" />
+  </Folder>
+  <Folder Name="/src/Modules/Configuration/Shared/">
+    <Project Path="DikePay.Modules.Configuration.Shared/DikePay.Modules.Configuration.Shared.csproj" Id="613352b4-2a10-4a9e-ab2e-0336c1ddb2f1" />
+  </Folder>
+  <Folder Name="/src/Modules/Customers/" />
+  <Folder Name="/src/Modules/DocumentSeries/" />
+  <Folder Name="/src/Modules/DocumentTypes/" />
+  <Folder Name="/src/Modules/Promotions/" />
+  <Folder Name="/src/Modules/Promotions/Application/">
+    <Project Path="DikePay.Modules.Promotions.Application/DikePay.Modules.Promotions.Application.csproj" Id="0962d0e4-f68d-459e-8313-b958761a7849" />
+  </Folder>
+  <Folder Name="/src/Modules/Promotions/Domain/">
+    <Project Path="DikePay.Modules.Promotions.Domain/DikePay.Modules.Promotions.Domain.csproj" Id="32e72456-32e0-40b5-9354-ff40306e631f" />
+  </Folder>
+  <Folder Name="/src/Modules/Promotions/Infrastructure/">
+    <Project Path="DikePay.Modules.Promotions.Infrastructure/DikePay.Modules.Promotions.Infrastructure.csproj" Id="db2c380f-c719-4dd1-8631-d2dd7528600c" />
+  </Folder>
+  <Folder Name="/src/Modules/Promotions/Shared/">
+    <Project Path="DikePay.Modules.Promotions.Shared/DikePay.Modules.Promotions.Shared.csproj" Id="142926dd-40ac-43c8-bbf6-9fb4852dc457" />
   </Folder>
   <Folder Name="/src/Shared/" />
   <Folder Name="/src/Shared/Infrastructure/">

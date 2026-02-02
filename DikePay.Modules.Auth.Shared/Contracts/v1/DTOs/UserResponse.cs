@@ -8,6 +8,5 @@
         public string Role { get; set; } = string.Empty;
         public bool State { get; set; }
         public string Token { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
     }
 }
