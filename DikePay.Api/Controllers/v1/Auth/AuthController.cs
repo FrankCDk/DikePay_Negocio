@@ -20,6 +20,13 @@ namespace DikePay.Api.Controllers.v1.Auth
             _mediator = mediator;
         }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request, CancellationToken cancellationToken)
+        {
+            var user = await _mediator.Send(request, cancellationToken);
+            return Ok(user);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Authenticate([FromBody] LoginCommand request, CancellationToken cancellationToken)
         {

@@ -29,7 +29,7 @@ namespace DikePay.Modules.Auth.Application.Features.v1
             if (user == null) return null;
 
             // 2. Verificar password
-            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
+            bool isPasswordValid = BCrypt.Net.BCrypt.EnhancedVerify(request.Password, user.PasswordHash);
 
             if (!isPasswordValid) return null; // Contraseña incorrecta
 
@@ -46,12 +46,6 @@ namespace DikePay.Modules.Auth.Application.Features.v1
             };
 
         }
-
-        public async Task<bool> VerifyPassword(string password, string storedHash)
-        {
-            return BCrypt.Net.BCrypt.Verify(password, storedHash);
-        }
-
         
     }
 }

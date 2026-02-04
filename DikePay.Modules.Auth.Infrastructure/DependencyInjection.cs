@@ -44,6 +44,7 @@ namespace DikePay.Modules.Auth.Infrastructure
             services.AddScoped<IAuthUnitOfWork, AuthUnitOfWork>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
     }

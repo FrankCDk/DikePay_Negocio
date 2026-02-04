@@ -35,7 +35,7 @@ namespace DikePay.Modules.Auth.Application.Services
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddHours(8), // El token dura 8 horas
+                expires: DateTime.Now.AddHours(24), // El token dura 8 horas
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
