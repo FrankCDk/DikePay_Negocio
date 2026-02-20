@@ -79,8 +79,15 @@
   <Folder Name="/src/Modules/Promotions/Shared/">
     <Project Path="DikePay.Modules.Promotions.Shared/DikePay.Modules.Promotions.Shared.csproj" Id="142926dd-40ac-43c8-bbf6-9fb4852dc457" />
   </Folder>
+  <Folder Name="/src/Modules/Warehouses/" />
+  <Folder Name="/src/Modules/Warehouses/Application/">
+    <Project Path="DikePay.Modules.Warehouses.Application/DikePay.Modules.Warehouses.Application.csproj" Id="8b82cd48-77ec-4319-8080-4d099eca0d45" />
+  </Folder>
   <Folder Name="/src/Shared/" />
   <Folder Name="/src/Shared/Infrastructure/">
     <Project Path="DikePay.Shared.Infrastructure/DikePay.Shared.Infrastructure.csproj" Id="5b2e1659-fb0a-431b-ad1f-7ea2ecf4baaa" />
+  </Folder>
+  <Folder Name="/src/Shared/Models/">
+    <Project Path="DikePay.Shared.Models/DikePay.Shared.Models.csproj" Id="0c9679aa-befc-4a15-b0db-16479d0f5f20" />
   </Folder>
 </Solution>

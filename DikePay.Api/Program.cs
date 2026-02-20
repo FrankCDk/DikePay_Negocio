@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 using Asp.Versioning;
 using DikePay.Modules.Auth.Infrastructure;
@@ -99,6 +100,18 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+// Middleware para asignar el traceId a cada solicitud, útil para correlacionar logs y errores.
+app.Use(async (context, next) =>
+{
+    // Obtenemos el ID de la operación actual
+    var traceId = Activity.Current?.Id ?? context.TraceIdentifier;
+
+    // Lo agregamos a los headers para que el cliente lo vea sin abrir el JSON
+    context.Response.Headers["x-trace-id"] = traceId;
+
+    await next();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
