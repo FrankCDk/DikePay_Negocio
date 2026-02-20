@@ -1,10 +1,8 @@
 ﻿using System.Security.Claims;
 using Asp.Versioning;
 using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
-using DikePay.Modules.Auth.Shared.Contracts.v1.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DikePay.Api.Controllers.v1.Auth
@@ -30,16 +28,19 @@ namespace DikePay.Api.Controllers.v1.Auth
         [HttpPost]
         public async Task<IActionResult> Authenticate([FromBody] LoginCommand request, CancellationToken cancellationToken)
         {
-            var user = await _mediator.Send(request, cancellationToken);
-            if(user == null)
+            var response = await _mediator.Send(request, cancellationToken);
+
+            if (!response.Success)
             {
-                return Unauthorized(new { message = "Credenciales inválidas" });
+                // Puedes mapear códigos específicos a StatusCodes específicos
+                return response.Code == "AUTH_003"
+                    ? Unauthorized(response)
+                    : BadRequest(response);
             }
 
-            return Ok(user);
+            return Ok(response);
 
         }
-
 
         [Authorize]
         [HttpPost("generate-qr-code")]
