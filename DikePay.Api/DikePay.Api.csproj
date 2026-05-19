@@ -62,7 +62,9 @@
   <ItemGroup>
     <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.1" />
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="MediatR" Version="14.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -73,15 +75,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DikePay.Modules.Auth.Infrastructure\DikePay.Modules.Auth.Infrastructure.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Auth.Shared\DikePay.Modules.Auth.Shared.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Catalog.Infrastructure\DikePay.Modules.Catalog.Infrastructure.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Catalog.Shared\DikePay.Modules.Catalog.Shared.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Configuration.Infrastructure\DikePay.Modules.Configuration.Infrastructure.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Configuration.Shared\DikePay.Modules.Configuration.Shared.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Promotions.Infrastructure\DikePay.Modules.Promotions.Infrastructure.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Promotions.Shared\DikePay.Modules.Promotions.Shared.csproj" />
-    <ProjectReference Include="..\DikePay.Shared.Infrastructure\DikePay.Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Auth\DikePay.Modules.Auth.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Catalog\DikePay.Modules.Catalog.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Configuration\DikePay.Modules.Configuration.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Promotions\DikePay.Modules.Promotions.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Warehouses\DikePay.Modules.Warehouses.csproj" />
+    <ProjectReference Include="..\DikePay.Shared\DikePay.Shared.csproj" />
   </ItemGroup>
 
 </Project>

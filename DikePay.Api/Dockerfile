@@ -14,19 +14,10 @@ WORKDIR /src
 # PASO CRÍTICO: Copiar todos los archivos .csproj para el Restore
 # Esto permite que Docker cachee las capas de NuGet incluso si cambias código
 COPY ["DikePay.Api/DikePay.Api.csproj", "DikePay.Api/"]
-COPY ["DikePay.Modules.Catalog.Infrastructure/DikePay.Modules.Catalog.Infrastructure.csproj", "DikePay.Modules.Catalog.Infrastructure/"]
-COPY ["DikePay.Modules.Catalog.Application/DikePay.Modules.Catalog.Application.csproj", "DikePay.Modules.Catalog.Application/"]
-COPY ["DikePay.Modules.Catalog.Domain/DikePay.Modules.Catalog.Domain.csproj", "DikePay.Modules.Catalog.Domain/"]
-COPY ["DikePay.Modules.Catalog.Shared/DikePay.Modules.Catalog.Shared.csproj", "DikePay.Modules.Catalog.Shared/"]
-COPY ["DikePay.Modules.Auth.Infrastructure/DikePay.Modules.Auth.Infrastructure.csproj", "DikePay.Modules.Auth.Infrastructure/"]
-COPY ["DikePay.Modules.Auth.Application/DikePay.Modules.Auth.Application.csproj", "DikePay.Modules.Auth.Application/"]
-COPY ["DikePay.Modules.Auth.Domain/DikePay.Modules.Auth.Domain.csproj", "DikePay.Modules.Auth.Domain/"]
-COPY ["DikePay.Modules.Auth.Shared/DikePay.Modules.Auth.Shared.csproj", "DikePay.Modules.Auth.Shared/"]
-COPY ["DikePay.Modules.Configuration.Infrastructure/DikePay.Modules.Configuration.Infrastructure.csproj", "DikePay.Modules.Configuration.Infrastructure/"]
-COPY ["DikePay.Modules.Configuration.Application/DikePay.Modules.Configuration.Application.csproj", "DikePay.Modules.Configuration.Application/"]
-COPY ["DikePay.Modules.Configuration.Domain/DikePay.Modules.Configuration.Domain.csproj", "DikePay.Modules.Configuration.Domain/"]
-COPY ["DikePay.Modules.Configuration.Shared/DikePay.Modules.Configuration.Shared.csproj", "DikePay.Modules.Configuration.Shared/"]
-COPY ["DikePay.Shared.Infrastructure/DikePay.Shared.Infrastructure.csproj", "DikePay.Shared.Infrastructure/"]
+COPY ["DikePay.Modules.Catalog/DikePay.Modules.Catalog.csproj", "DikePay.Modules.Catalog/"]
+COPY ["DikePay.Modules.Auth/DikePay.Modules.Auth.csproj", "DikePay.Modules.Auth/"]
+COPY ["DikePay.Modules.Configuration/DikePay.Modules.Configuration.csproj", "DikePay.Modules.Configuration/"]
+COPY ["DikePay.Shared/DikePay.Shared.csproj", "DikePay.Shared/"]
 
 # Ejecutar restore de la API (esto restaurará todas las dependencias)
 RUN dotnet restore "DikePay.Api/DikePay.Api.csproj"
