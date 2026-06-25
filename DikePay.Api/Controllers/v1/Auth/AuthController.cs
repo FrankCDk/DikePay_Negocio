@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 using Asp.Versioning;
-using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
+using DikePay.Modules.Auth.Application.Contracts.v1.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +18,7 @@ namespace DikePay.Api.Controllers.v1.Auth
             _mediator = mediator;
         }
 
-        [HttpPost("create")]
+        [HttpPost("crear")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _mediator.Send(request, cancellationToken);
@@ -43,7 +43,7 @@ namespace DikePay.Api.Controllers.v1.Auth
         }
 
         [Authorize]
-        [HttpPost("generate-qr-code")]
+        [HttpPost("generar-qr-code")]
         public async Task<IActionResult> GenerateQrCode(CancellationToken ct)
         {
             // Obtenemos el ID del usuario del Token JWT actual

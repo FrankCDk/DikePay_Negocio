@@ -1,7 +1,7 @@
 ﻿using DikePay.Modules.Auth.Application.Abstractions.Interfaces;
 using DikePay.Modules.Auth.Application.Abstractions.Persistence;
-using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
-using DikePay.Modules.Auth.Shared.Contracts.v1.DTOs;
+using DikePay.Modules.Auth.Application.Contracts.v1.Commands;
+using DikePay.Modules.Auth.Application.Contracts.v1.DTOs;
 using DikePay.Shared.Models;
 using MediatR;
 using Microsoft.Extensions.Configuration;
@@ -29,12 +29,12 @@ namespace DikePay.Modules.Auth.Application.Features.v1
 
             if (user == null)
             {
-                return ApiResponse<UserResponse>.Fail("AUTH_001", "El usuario no existe.");
+                throw new Exception("AUTH_001: El usuario no existe.");
             }
 
-            if (user.IsActive)
+            if (!user.IsActive)
             {
-                return ApiResponse<UserResponse>.Fail("AUTH_02", "El usuario se encuentra inactivo");
+                throw new Exception("AUTH_02: El usuario se encuentra inactivo");
             }
 
             // 2. Verificar password
@@ -42,7 +42,7 @@ namespace DikePay.Modules.Auth.Application.Features.v1
 
             if (!isPasswordValid)
             {
-                return ApiResponse<UserResponse>.Fail("AUTH_003", "Contraseña incorrecta.");
+                throw new Exception("AUTH_003: Contraseña incorrecta.");
             }
 
             var token = _tokenService.GenerateJwtToken(user);

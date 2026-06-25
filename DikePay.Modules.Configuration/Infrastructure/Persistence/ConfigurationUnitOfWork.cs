@@ -1,19 +1,19 @@
-﻿using DikePay.Modules.Configuration.Domain.Interfaces;
+﻿using DikePay.Modules.Configuracion.Domain.Interfaces;
 
-namespace DikePay.Modules.Configuration.Infrastructure.Persistence
+namespace DikePay.Modules.Configuracion.Infrastructure.Persistence
 {
-    public class ConfigurationUnitOfWork : IConfigurationUnitOfWork
+    public class ConfigurationUnitOfWork : IConfiguracionUnitOfWork
     {
         private readonly ConfigurationDbContext _context;
-        private IConfigurationRepository _versions;
+        private IConfiguracionRepository _versiones;
 
         public ConfigurationUnitOfWork(ConfigurationDbContext context)
         {
             _context = context;
         }
 
-        public IConfigurationRepository Versions =>
-                    _versions ??= new ConfigurationRepository(_context);
+        public IConfiguracionRepository Versiones =>
+                    _versiones ??= new ConfigurationRepository(_context);
 
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

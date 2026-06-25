@@ -1,25 +1,25 @@
-﻿using DikePay.Modules.Promotions.Application.Abstractions.Persistence;
-using DikePay.Modules.Promotions.Domain.Entities;
-using DikePay.Modules.Promotions.Shared.Contracts.v1;
+﻿using DikePay.Modules.Promociones.Application.Abstractions.Persistence;
+using DikePay.Modules.Promociones.Application.Contracts.v1;
+using DikePay.Modules.Promociones.Domain.Entities;
 using MediatR;
 
-namespace DikePay.Modules.Promotions.Application.Features.v1.Queries
+namespace DikePay.Modules.Promociones.Application.Features.v1.Queries
 {
-    public class GetAllPromotionsQueryHandler : IRequestHandler<GetAllPromotionsQuery, IEnumerable<Promotion>>
+    public class GetAllPromotionsQueryHandler : IRequestHandler<ListarPromocionesQuery, IEnumerable<Promocion>>
     {
-        private IPromotionsRepository _promotions;
-        public GetAllPromotionsQueryHandler(IPromotionsRepository promotions)
+        private IPromocionRepository _promotions;
+        public GetAllPromotionsQueryHandler(IPromocionRepository promotions)
         {
             _promotions = promotions;
         }
 
-        public async Task<IEnumerable<Promotion>> Handle(GetAllPromotionsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Promocion>> Handle(ListarPromocionesQuery request, CancellationToken cancellationToken)
         {
             // Podrías agregar lógica aquí para filtrar solo las vigentes si quisieras,
             // pero para una demo "GetAll" cumple su propósito.
-            var results = await _promotions.GetAllAsync(cancellationToken);
+            var results = await _promotions.ListarAsync(cancellationToken);
 
-            return results ?? Enumerable.Empty<Promotion>();
+            return results ?? Enumerable.Empty<Promocion>();
         }
     }
 }

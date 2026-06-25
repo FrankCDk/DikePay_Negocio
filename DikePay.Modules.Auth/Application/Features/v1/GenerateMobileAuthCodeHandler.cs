@@ -1,7 +1,7 @@
 ﻿using DikePay.Modules.Auth.Application.Abstractions.Persistence;
+using DikePay.Modules.Auth.Application.Contracts.v1.Commands;
+using DikePay.Modules.Auth.Application.Contracts.v1.DTOs;
 using DikePay.Modules.Auth.Domain;
-using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
-using DikePay.Modules.Auth.Shared.Contracts.v1.DTOs;
 using MediatR;
 
 namespace DikePay.Modules.Auth.Application.Features.v1

@@ -1,12 +1,12 @@
-﻿using DikePay.Modules.Configuration.Application.Features.v1.Versions.Handlers;
-using DikePay.Modules.Configuration.Domain.Interfaces;
-using DikePay.Modules.Configuration.Infrastructure.Persistence;
+﻿using DikePay.Modules.Configuracion.Application.Features.v1.Versions.Handlers;
+using DikePay.Modules.Configuracion.Domain.Interfaces;
+using DikePay.Modules.Configuracion.Infrastructure.Persistence;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DikePay.Modules.Configuration.Infrastructure
+namespace DikePay.Modules.Configuracion.Infrastructure
 {
     public static class DependencyInjection
     {
@@ -32,14 +32,14 @@ namespace DikePay.Modules.Configuration.Infrastructure
             services.AddMediatR(cfg =>
             {
                 // Escanea los Handlers solo de la capa Application de Catalog
-                cfg.RegisterServicesFromAssembly(typeof(CreateVersionHandler).Assembly);
+                cfg.RegisterServicesFromAssembly(typeof(CrearVersionHandler).Assembly);
             });
 
             services.AddAutoMapper(cfg =>
-                    cfg.AddMaps(typeof(CreateVersionHandler).Assembly)
+                    cfg.AddMaps(typeof(CrearVersionHandler).Assembly)
                 );
-            services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
-            services.AddScoped<IConfigurationUnitOfWork, ConfigurationUnitOfWork>();
+            services.AddScoped<IConfiguracionRepository, ConfigurationRepository>();
+            services.AddScoped<IConfiguracionUnitOfWork, ConfigurationUnitOfWork>();
 
             return services;
         }

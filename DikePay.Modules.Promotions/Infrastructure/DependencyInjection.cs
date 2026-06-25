@@ -1,11 +1,11 @@
-﻿using DikePay.Modules.Promotions.Application.Abstractions.Persistence;
-using DikePay.Modules.Promotions.Application.Features.v1.Queries;
-using DikePay.Modules.Promotions.Infrastructure.Persistence;
+﻿using DikePay.Modules.Promociones.Application.Abstractions.Persistence;
+using DikePay.Modules.Promociones.Application.Features.v1.Queries;
+using DikePay.Modules.Promociones.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DikePay.Modules.Promotions.Infrastructure
+namespace DikePay.Modules.Promociones.Infrastructure
 {
     public static class DependencyInjection
     {
@@ -15,7 +15,7 @@ namespace DikePay.Modules.Promotions.Infrastructure
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             var serverVersion = ServerVersion.AutoDetect(connectionString);
 
-            services.AddDbContext<PromotionsDbContext>(options =>
+            services.AddDbContext<PromocionDbContext>(options =>
                 options.UseMySql(connectionString, serverVersion, mysqlOptions =>
                 {
                     // Recomendado para apps robustas
@@ -34,8 +34,8 @@ namespace DikePay.Modules.Promotions.Infrastructure
                 cfg.RegisterServicesFromAssembly(typeof(GetAllPromotionsQueryHandler).Assembly);
             });
 
-            services.AddScoped<IPromotionsRepository, PromotionsRepository>();
-            services.AddScoped<IPromotionsUnitOfWork, PromotionsUnitOfWork>();
+            services.AddScoped<IPromocionRepository, PromocionRepository>();
+            services.AddScoped<IPromocionUnitOfWork, PromocionUnitOfWork>();
 
             return services;
         }

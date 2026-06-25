@@ -14,7 +14,7 @@ WORKDIR /src
 # PASO CRÍTICO: Copiar todos los archivos .csproj para el Restore
 # Esto permite que Docker cachee las capas de NuGet incluso si cambias código
 COPY ["DikePay.Api/DikePay.Api.csproj", "DikePay.Api/"]
-COPY ["DikePay.Modules.Catalog/DikePay.Modules.Catalog.csproj", "DikePay.Modules.Catalog/"]
+COPY ["DikePay.Modules.Articulos/DikePay.Modules.Articulos.csproj", "DikePay.Modules.Articulos/"]
 COPY ["DikePay.Modules.Auth/DikePay.Modules.Auth.csproj", "DikePay.Modules.Auth/"]
 COPY ["DikePay.Modules.Configuration/DikePay.Modules.Configuration.csproj", "DikePay.Modules.Configuration/"]
 COPY ["DikePay.Shared/DikePay.Shared.csproj", "DikePay.Shared/"]

@@ -114,36 +114,34 @@ CREATE TABLE codigos_autenticacion_movil (
     INDEX IX_codigo_autenticacion (codigo_autenticacion)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tabla: AppVersions
-CREATE TABLE app_versions (
-    id CHAR(36) PRIMARY KEY, -- Almacenaremos el UUID aquí
-    platform TINYINT NOT NULL COMMENT '1: Android, 2: iOS, 3: Windows',
-    version_number VARCHAR(20) NOT NULL,
-    build_number INT NOT NULL,
-    is_critical_update TINYINT(1) NOT NULL DEFAULT 0,
-    release_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    download_url VARCHAR(255),
-    is_active TINYINT(1) NOT NULL DEFAULT 1
-);
-
--- Tabla: AppReleaseNotes
-CREATE TABLE app_release_notes (
+-- 1. Tabla de Versiones
+CREATE TABLE versiones_app (
     id CHAR(36) PRIMARY KEY,
-    app_version_id CHAR(36) NOT NULL,
-    language_code VARCHAR(5) NOT NULL, -- 'es', 'en'
-    notes TEXT NOT NULL,
-    CONSTRAINT fk_version FOREIGN KEY (app_version_id) 
-        REFERENCES app_versions(id) ON DELETE CASCADE
+    plataforma VARCHAR(50),
+    numero_version VARCHAR(20),
+    numero_build INT,
+    es_actualizacion_critica TINYINT(1) DEFAULT 0,
+    fecha_lanzamiento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    url_descarga VARCHAR(255),
+    es_activa TINYINT(1) DEFAULT 1
 );
 
--- Tabla: GlobalSettings
-CREATE TABLE global_settings (
-    config_key VARCHAR(100) PRIMARY KEY,
-    config_value TEXT NOT NULL,
-    description VARCHAR(255),
-    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- 2. Tabla de Notas de Lanzamiento
+CREATE TABLE notas_lanzamiento (
+    id CHAR(36) PRIMARY KEY,
+    id_version_app CHAR(36),
+    codigo_idioma VARCHAR(5),
+    notas TEXT,
+    FOREIGN KEY (id_version_app) REFERENCES versiones_app(id) ON DELETE CASCADE
 );
 
+-- 3. Tabla de Configuración Global
+CREATE TABLE configuracion_global (
+    clave_configuracion VARCHAR(100) PRIMARY KEY,
+    valor_configuracion TEXT,
+    descripcion VARCHAR(255),
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
 
 CREATE TABLE agencias (

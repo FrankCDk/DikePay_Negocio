@@ -3,11 +3,9 @@ using DikePay.Modules.Auth.Application.Abstractions.Persistence;
 using DikePay.Modules.Auth.Application.Features.v1;
 using DikePay.Modules.Auth.Application.Services;
 using DikePay.Modules.Auth.Infrastructure.Persistence;
-using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DikePay.Modules.Auth.Infrastructure
 {

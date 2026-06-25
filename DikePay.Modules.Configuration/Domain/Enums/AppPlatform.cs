@@ -1,4 +1,4 @@
-﻿namespace DikePay.Modules.Configuration.Domain.Enums
+﻿namespace DikePay.Modules.Configuracion.Domain.Enums
 {
     public enum AppPlatform
     {

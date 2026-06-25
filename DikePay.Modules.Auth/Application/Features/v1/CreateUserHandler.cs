@@ -1,6 +1,6 @@
 ﻿using DikePay.Modules.Auth.Application.Abstractions.Persistence;
+using DikePay.Modules.Auth.Application.Contracts.v1.Commands;
 using DikePay.Modules.Auth.Domain;
-using DikePay.Modules.Auth.Shared.Contracts.v1.Commands;
 using MediatR;
 
 namespace DikePay.Modules.Auth.Application.Features.v1
@@ -23,7 +23,7 @@ namespace DikePay.Modules.Auth.Application.Features.v1
                 Email = request.Email,
                 PasswordHash = HashPassword(request.Password),
                 Role = request.Rol,
-                IsActive = request.Estado.ToLower() == "A"
+                IsActive = request.Estado
             };
 
             await _userRepository.Create(user);

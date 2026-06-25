@@ -1,4 +1,4 @@
-﻿namespace DikePay.Modules.Warehouses.Application
+﻿namespace DikePay.Modules.Almacenes.Application
 {
     public static class AssemblyReference
     {

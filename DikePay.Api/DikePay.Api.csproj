@@ -76,10 +76,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DikePay.Modules.Auth\DikePay.Modules.Auth.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Catalog\DikePay.Modules.Catalog.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Configuration\DikePay.Modules.Configuration.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Promotions\DikePay.Modules.Promotions.csproj" />
-    <ProjectReference Include="..\DikePay.Modules.Warehouses\DikePay.Modules.Warehouses.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Catalog\DikePay.Modules.Articulos.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Configuration\DikePay.Modules.Configuracion.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Promotions\DikePay.Modules.Promociones.csproj" />
+    <ProjectReference Include="..\DikePay.Modules.Warehouses\DikePay.Modules.Almacenes.csproj" />
     <ProjectReference Include="..\DikePay.Shared\DikePay.Shared.csproj" />
   </ItemGroup>
 

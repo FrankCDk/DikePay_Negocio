@@ -2,10 +2,11 @@
 using System.Reflection;
 using System.Text;
 using Asp.Versioning;
+using DikePay.Api.Middlewares;
 using DikePay.Modules.Auth.Infrastructure;
-using DikePay.Modules.Catalog.Infrastructure;
-using DikePay.Modules.Configuration.Infrastructure;
-using DikePay.Modules.Promotions.Infrastructure;
+using DikePay.Modules.Articulos.Infrastructure;
+using DikePay.Modules.Configuracion.Infrastructure;
+using DikePay.Modules.Promociones.Infrastructure;
 using DikePay.Shared.Infrastructure.Behaviors;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -100,6 +101,9 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+// Middleware personalizado para manejar excepciones globalmente y retornar respuestas de error consistentes.
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // Middleware para asignar el traceId a cada solicitud, útil para correlacionar logs y errores.
 app.Use(async (context, next) =>
